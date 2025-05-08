@@ -3,7 +3,11 @@ package com.fernandopaniagua.demo.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="tvideojuego")
+@Table(name="tvideojuegos")
+@NamedQuery(
+        name = "findByPlatform",
+        query = "FROM Videogame vg WHERE vg.platform = :platform"
+)
 public class Videogame {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,25 +19,30 @@ public class Videogame {
     private int price;
     @Transient
     private boolean status;
+    @ManyToOne
+    @JoinColumn(name="idgenre")
+    private Genre genre;
 
     public Videogame() {
     }
 
-    public Videogame(String title, String platform, boolean multiplayer, int price, boolean status) {
+    public Videogame(String title, String platform, boolean multiplayer, int price, boolean status, Genre genre) {
         this.title = title;
         this.platform = platform;
         this.multiplayer = multiplayer;
         this.price = price;
         this.status = status;
+        this.genre = genre;
     }
 
-    public Videogame(int id, String title, String platform, boolean multiplayer, int price, boolean status) {
+    public Videogame(int id, String title, String platform, boolean multiplayer, int price, boolean status, Genre genre) {
         this.id = id;
         this.title = title;
         this.platform = platform;
         this.multiplayer = multiplayer;
         this.price = price;
         this.status = status;
+        this.genre = genre;
     }
 
     public int getId() {
@@ -82,5 +91,26 @@ public class Videogame {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    @Override
+    public String toString() {
+        return "Videogame{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", platform='" + platform + '\'' +
+                ", multiplayer=" + multiplayer +
+                ", price=" + price +
+                ", status=" + status +
+                ", genre=" + genre +
+                '}';
     }
 }

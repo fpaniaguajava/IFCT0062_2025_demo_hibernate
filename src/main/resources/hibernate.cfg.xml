@@ -20,5 +20,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- List of mapped classes -->
         <mapping class="com.fernandopaniagua.demo.model.Videogame"/>
+        <mapping class="com.fernandopaniagua.demo.model.Genre"/>
+        <mapping class="com.fernandopaniagua.demo.model.Studio"/>
     </session-factory>
 </hibernate-configuration>
