@@ -1,0 +1,3 @@
+Utilizar esta imagen para crear la instancia con datos de postgresql:
+
+fouya/ifct0062_postgresql_videogames:latest
