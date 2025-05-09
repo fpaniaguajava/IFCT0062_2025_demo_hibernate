@@ -7,15 +7,15 @@ import jakarta.persistence.Entity;
 public class Studio {
     @EmbeddedId
     private StudioPK id;
-    private String name;
+    private String description;
     private String country;
 
     public Studio() {
     }
 
-    public Studio(StudioPK id, String name, String country) {
+    public Studio(StudioPK id, String description, String country) {
         this.id = id;
-        this.name = name;
+        this.description = description;
         this.country = country;
     }
 
@@ -27,12 +27,12 @@ public class Studio {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCountry() {
