@@ -50,7 +50,7 @@ public class Main {
 
         //6. CREATE STUDIO
         System.out.println("6. CREATE STUDIO");
-        Studio newStudio = new Studio(new StudioPK("Naughty Dog", 1984), "Desarrollo de videojuegos para PlayStation", "EEUU");
+        Studio newStudio = new Studio(new StudioPK("Naughty Dog", 1995), "Desarrollo de videojuegos para PlayStation", "EEUU");
         StudioDAO.create(newStudio);
     }
 
